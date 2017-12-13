@@ -9,46 +9,44 @@
 </head>
 
 <body>
-  <h1>WHAT IS A PSEUDO ELEMENT?</h1>
+  <h1>WHAT IS A <span>PSEUDO ELEMENT</span>?</h1>
   <div class="explain">
     <p>A CSS pseudo-element is a keyword added to a selector that lets you
-      <b>style</b> a specific part of the selected element(s).
-      For example, <b>::selection</b> can be used to change the style of the selected text.
-      Select this paragraph to see the CSS in action.</p>
-      <br>
-      <p>CSS</p>
+      <b>style</b> a specific part of the selected element(s). For example, <b>::selection</b> can be used to change the style of the selected text. Select this paragraph to see the CSS in action.</p>
+    <br>
+    <p>CSS</p>
     <pre class="code" title="font from Google Fonts">
-    p {
-      font-family: 'Source Code Pro', monospace;
-      text-shadow: 3px 3px 11px rgba(93, 107, 96, 1);
-      font-size: 20px;
-    }
+      p {
+        font-family: 'Source Code Pro', monospace;
+        text-shadow: 3px 3px 11px rgba(93, 107, 96, .5);
+        font-size: 20px;
+      }
 
-    p::selection {
-      color: rgb(236, 226, 246);
-      background: rgb(254, 169, 99);
-      text-shadow: none;
-    }
+      p::selection {
+        color: rgb(236, 226, 246);
+        background: rgb(254, 169, 99);
+        text-shadow: 3px 3px 11px rgba(255, 255, 255, 0.9);
+      }
 
-    b {
-      color: rgb(255, 255, 255);
-      font-size: 24px;
-    }
+      b {
+        color: rgb(255, 255, 255);
+        font-size: 24px;
+      }
 
-    b::selection {
-      color: rgb(255, 84, 69);
-      background: rgb(195, 162, 228);
-      text-shadow: none;
-    }
+
+      b::selection {
+        color: rgb(231, 167, 162);
+        background: rgb(195, 162, 228);
+        text-shadow: none;
+      }
   </pre>
 
   </div>
 
-  <h1>WHAT IS A PSEUDO CLASS?</h1>
+  <h1>WHAT IS A <span>PSEUDO CLASS</span>?</h1>
   <div class="explain">
-    <p>A CSS pseudo-class is a keyword added to a selector that specifies a special state of the selected element(s).
-      For example, <b>:hover</b> can be used to change a button's color when the user hovers over it.
-      The <b>::before</b> pseudo element is the first child of the selected element. It usually is added for design purposes to an element with the content property and is inline by default. </p>
+    <p>A CSS pseudo-class is a keyword added to a selector that specifies a special state of the selected element(s). For example, <b>:hover</b> can be used to change a button's color when the user hovers over it. The <b>::before</b> pseudo element is the
+      first child of the selected element. It usually is added for design purposes to an element with the content property and is inline by default. </p>
   </div>
   <div id="list">
     <ul>
@@ -105,14 +103,87 @@
         }
       }, false);
     </pre>
+
   </div>
 
-<footer>
-<h1>SOURCES</h1>
-<p>Look at this page on <a href="https://github.com/davidnymanmusic/css-lightning-talk">GitHub</a></p>
-<p>More info at <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Pseudo-classes_and_pseudo-elements">MDN</a></p>
-<p>To-do list code adapted from <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::before">MDN</a></p>
-</footer>
+  <h1>Aspect Ratios and <span>&#58;&#58;before</span></h1>
+  <div class="explain">
+    <section class="example">
+      <p>Each square has a different aspect ratio that is maintained using <b>::before</b></p>
+      <p>Resize the window</p>
+      <div class="width ratio2-1">
+        <div class="container">Aspect ratio 2:1</div>
+      </div>
+      <div class="width ratio16-9">
+        <div class="container">Aspect ratio 16:9</div>
+      </div>
+      <div class="width ratio4-3">
+        <div class="container">Aspect ratio 4:3</div>
+      </div>
+      <div class="width ratio1-1">
+        <div class="container">Aspect ratio 1:1</div>
+      </div>
+    </section>
+  </div>
+  <p id="css">CSS</p>
+  <pre class="code2">
+  .example {
+    text-align: center;
+  }
+
+  .width {
+    width: 45%;
+    background: rgb(255, 170, 170);
+    position: relative;
+    display: inline-block;
+    margin: 1%;
+    vertical-align: top;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .3);
+  }
+
+  .width::before {
+    content: '';
+    display: block;
+  }
+
+  .ratio2-1::before {
+    padding-top: 50%;
+  }
+
+  .ratio16-9::before {
+    padding-top: 56.25%;
+  }
+
+  .ratio4-3::before {
+    padding-top: 75%;
+  }
+
+  .ratio1-1::before {
+    padding-top: 100%;
+  }
+
+  .container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    font-family: 'Source Code Pro', monospace;
+  }
+</pre>
+
+
+  <footer>
+    <h1>SOURCES</h1>
+    <p id="pP">Look at this page on <a href="https://github.com/davidnymanmusic/css-lightning-talk">GitHub</a></p>
+    <p id="pP">More info at <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Pseudo-classes_and_pseudo-elements">MDN</a></p>
+    <p id="pP">To-do list code adapted from <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::before">MDN</a></p>
+    <p id="pP">Aspect ratio code adapted from <a href="https://codepen.io/Kseso/pen/bfdhg">CodePen</a></p>
+
+
+  </footer>
 
   <script type="text/javascript" src="app.js">
   </script>
